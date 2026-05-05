@@ -24,14 +24,16 @@ class VisitsServiceClientIntegrationTest {
     private MockWebServer server;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws IOException { // Added throws IOException
         server = new MockWebServer();
+        server.start(); // Start the server before requesting the URL
         visitsServiceClient = new VisitsServiceClient(WebClient.builder());
         visitsServiceClient.setHostname(server.url("/").toString());
     }
 
     @AfterEach
     void shutdown() throws IOException {
+        // server.shutdown() is more common in v3, but close() also works
         this.server.close();
     }
 

@@ -12,7 +12,7 @@ services:
       timeout: 5s
       retries: 10
     ports:
-     - 8888:8888
+      - 8888:8888
 
   discovery-server:
     image: petclinic-signoz/spring-petclinic-discovery-server
@@ -30,7 +30,7 @@ services:
       config-server:
         condition: service_healthy
     ports:
-     - 8761:8761
+      - 8761:8761
 
   customers-service:
     image: petclinic-signoz/spring-petclinic-customers-service
@@ -45,7 +45,7 @@ services:
       discovery-server:
         condition: service_healthy
     ports:
-    - 8081:8081
+      - 8081:8081
 
   visits-service:
     image: petclinic-signoz/spring-petclinic-visits-service
@@ -60,7 +60,7 @@ services:
       discovery-server:
         condition: service_healthy
     ports:
-     - 8082:8082
+      - 8082:8082
 
   vets-service:
     image: petclinic-signoz/spring-petclinic-vets-service
@@ -75,7 +75,7 @@ services:
       discovery-server:
         condition: service_healthy
     ports:
-     - 8083:8083
+      - 8083:8083
 
 
   genai-service:
@@ -95,7 +95,7 @@ services:
       discovery-server:
         condition: service_healthy
     ports:
-     - 8084:8084
+      - 8084:8084
 
 
   api-gateway:
@@ -111,7 +111,7 @@ services:
       discovery-server:
         condition: service_healthy
     ports:
-     - 8080:8080
+      - 8080:8080
 
   admin-server:
     image: petclinic-signoz/spring-petclinic-admin-server
@@ -126,7 +126,7 @@ services:
       discovery-server:
         condition: service_healthy
     ports:
-     - 9090:9090
+      - 9090:9090
 
   otel-collector:
     deploy:
